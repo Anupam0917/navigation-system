@@ -12,36 +12,51 @@
 
     ARCHITECURE
    --------------
-           Smartphone IMU
-   Accelerometer + Gyroscope
-              │
-              ▼
-       ┌───────────────┐
-       │      AI       │
-       │ Intelligence  │
-       │    Layer      │
-       └───────┬───────┘
-               │
-       ┌───────┴────────┐
-       │                │
-       ▼                ▼
- Motion estimation   Sensor confidence
- Speed / motion      Noise / covariance
- classification      estimation
-       │                │
-       └───────┬────────┘
-               ▼
-             IEKF
-               │
-     ┌─────────┼─────────┐
-     ▼         ▼         ▼
-   GNSS       Map      Vehicle
-  when avail  data    constraints
-     │         │         │
-     └─────────┼─────────┘
-               ▼
-        Position + Heading
-        + Velocity + Confidence
+01 • Input
+Smartphone Sensors
+Accelerometer
+Gyroscope
+Magnetometer
+GNSS when available.
+
+02 • Prepare
+Preprocessing
+Time synchronization
+Noise filtering
+Outlier removal
+Phone-to-vehicle alignment.
+
+
+03 • Intelligence
+AI / ML Model
+Motion-state detection
+Speed / velocity estimation
+Sensor reliability
+Adaptive Q / R estimation.
+
+
+04 • Fusion
+IEKF Sensor Fusion
+IMU prediction
+GNSS correction
+AI-assisted constraints
+State + uncertainty estimation.
+
+
+05 • Correction
+Map & Motion Constraints
+Offline map matching
+Vehicle-motion constraints
+Stop-based drift correction
+GNSS ↔ DR switching.
+
+
+06 • Output
+Navigation App
+Continuous position
+Estimated trajectory
+Speed & heading
+Confidence / error margin.
 
 
 
